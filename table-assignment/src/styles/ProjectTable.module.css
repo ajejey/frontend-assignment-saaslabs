@@ -1,0 +1,243 @@
+.tableContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.tableHeader {
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+.tableHeader th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+
+.tableHeader th:nth-child(1) {
+  width: 15%;
+  text-align: center;
+}
+
+.tableHeader th:nth-child(2) {
+  width: 35%;
+  text-align: right;
+}
+
+.tableHeader th:nth-child(3) {
+  width: 50%;
+  text-align: right;
+}
+
+.tableRow {
+  transition: background-color 0.2s ease;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.tableRow:hover {
+  background-color: #f1f5f9;
+}
+
+.tableCell {
+  padding: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 60px;
+  line-height: 28px;
+  color: #334155;
+  font-size: 0.9375rem;
+}
+
+
+.tableCell:nth-child(1) {
+  text-align: center;
+}
+
+.tableCell:nth-child(2),
+.tableCell:nth-child(3) {
+  text-align: right;
+}
+
+.emptyRow {
+  background-color: #ffffff;
+}
+
+.emptyRow .tableCell {
+  border-bottom: 1px solid #e2e8f0;
+  color: transparent;
+}
+
+
+.tableRow:last-child .tableCell,
+.emptyRow:last-child .tableCell {
+  border-bottom: none;
+}
+
+
+.table caption {
+  sr-only: true;
+}
+
+
+@media (max-width: 600px) {
+  .tableContainer {
+    width: 95%;
+    margin: 0 auto;
+  }
+  
+  .tableCell {
+    padding: 8px 10px;
+  }
+}
+
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.paginationWrapper {
+  display: inline-flex;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 8px;
+}
+
+.paginationButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.paginationButton:hover:not(:disabled) {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.paginationButton.active {
+  background: #3b82f6;
+  color: white;
+  font-weight: 600;
+}
+
+.paginationButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.navButton {
+  font-size: 1.25rem;
+  color: #64748b;
+}
+
+.navButton:hover:not(:disabled) {
+  background: #e2e8f0;
+}
+
+.dots {
+  cursor: default;
+}
+
+.dots:hover {
+  background: transparent !important;
+}
+
+
+.paginationButton:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.paginationButton:focus:not(:focus-visible) {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+
+@media (max-width: 640px) {
+  .tableCell,
+  .tableHeader th {
+    padding: 12px;
+    font-size: 0.875rem;
+  }
+
+  .paginationWrapper {
+    gap: 0.125rem;
+  }
+
+  .paginationButton {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.75rem;
+  }
+
+  .navButton {
+    font-size: 1rem;
+  }
+}
+
+
+@keyframes loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+.skeletonRow {
+  height: 60px;
+}
+
+.skeletonCell {
+  background-color: hsl(200, 20%, 80%);
+  animation: loading 1.5s infinite alternate;
+  border-radius: 4px;
+  height: 40px;
+  margin: 8px;
+  opacity: 0.7;
+}
+
+.skeletonRow td {
+  padding: 8px;
+  text-align: center;
+}
